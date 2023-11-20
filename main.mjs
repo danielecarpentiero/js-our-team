@@ -1,6 +1,6 @@
 let people = [
   {
-    name: "wayne Barnett",
+    name: "Wayne Barnett",
     role: "Founder & CEO",
     img: "wayne-barnett-founder-ceo.jpg",
   },
@@ -34,6 +34,23 @@ let people = [
 for (let i = 0; i < people.length; i++) {
   let member = people[i];
   console.log(
-    `Name: ${member.name}, Role: ${member.role}, Picture: ${member.img} `
+    `Name: ${member.name}, Role: ${member.role}, Picture: ${member.img}`
   );
+
+  const cardContent = document.querySelectorAll(".card-body")[i]; // seleziona la card-body corrispondente
+
+  const firstNameElement = document.createElement("h3");
+  firstNameElement.id = `first-name-${i}`;
+  firstNameElement.textContent = member.name;
+
+  const roleElement = document.createElement("h5");
+  roleElement.id = `role${i}`;
+  roleElement.textContent = member.role;
+
+  cardContent.append(firstNameElement);
+  cardContent.append(roleElement);
+
+  const imgElement = document.querySelectorAll(".card-img-top")[i]; // seleziona l'immagine corrispondente
+  imgElement.src = `img/${member.img}`;
+  imgElement.alt = member.name;
 }
